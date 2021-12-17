@@ -93,11 +93,11 @@ import {Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIte
 import {MenuIcon, XIcon} from '@heroicons/vue/outline'
 
 const navigation = [
-	{name: 'Home', to: '/home', current: true},
+	{name: 'Home', to: '/', current: true},
 	{name: 'About', to: '/about', current: false},
-	{name: 'Student', to: '/student', current: false},
-	{name: 'Teacher', to: '/teacher', current: false},
-	{name: 'Result', to: '/result', current: false},
+	{name: 'Student', to: '/students', current: false},
+	{name: 'Teacher', to: '/teachers', current: false},
+	{name: 'Login', to: '/login', current: false},
 ]
 
 export default {

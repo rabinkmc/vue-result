@@ -8,7 +8,6 @@
 			<hr class="mt-4" />
 		</div>
 	</div>
-	<button class="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Result</button>
 </template>
 
 <script>

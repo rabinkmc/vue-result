@@ -6,6 +6,7 @@ import StudentDetail from "../views/StudentDetail.vue";
 import TeacherDetail from "../views/TeacherDetail.vue";
 import Teacher from "../views/Teacher.vue";
 import Result from "../views/Result.vue";
+import Login from "../views/Login.vue";
 
 const routes = [
   {
@@ -13,6 +14,13 @@ const routes = [
     name: "Home",
     component: Home,
   },
+
+  {
+    path: "/login",
+    name: "Login",
+    component: Login,
+  },
+
   {
     path: "/result/:id",
     name: "Result",
@@ -26,22 +34,10 @@ const routes = [
   },
 
   {
-    path: "/student",
+    path: "/students",
     name: "Student",
     component: Student,
   },
-
-  {
-    path: "/student/:id-:slug/",
-    name: "StudentDetail",
-    component: StudentDetail,
-  },
-  {
-    path: "/teacher/:id-:slug/",
-    name: "TeacherDetail",
-    component: TeacherDetail,
-  },
-
   {
     path: "/teacher",
     name: "Teacher",
@@ -49,9 +45,29 @@ const routes = [
   },
 
   {
-    path: "/result",
+    path: "/students/:id",
+    name: "StudentDetail",
+    component: StudentDetail,
+  },
+
+  {
+    path: "/teachers/:id",
+    name: "TeacherDetail",
+    component: TeacherDetail,
+    props: true,
+  },
+
+  {
+    path: "/teachers",
+    name: "Teacher",
+    component: Teacher,
+  },
+
+  {
+    path: "/result/:id",
     name: "Result",
     component: Result,
+    props: true,
   },
 ];
 

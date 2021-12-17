@@ -18,8 +18,8 @@ export default {
 	},
 	data() {
 		return {
-			url: 'http://localhost:8050/api/v1/student/?limit=37&offset=0',
-			students: null,
+			url: 'http://localhost:8050/students/?limit=37&offset=0',
+			students: {},
 		}
 	},
 	mounted() {

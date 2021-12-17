@@ -17,7 +17,7 @@ export default {
 	},
 	data() {
 		return {
-			url: 'http://localhost:8050/api/v1/teacher/?limit=37&offset=0',
+			url: 'http://localhost:8050/teachers/',
 			teachers: null,
 		}
 	},

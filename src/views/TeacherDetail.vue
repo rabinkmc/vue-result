@@ -8,18 +8,24 @@ import TeacherComponent from '../components/TeacherComponent.vue'
 import axios from 'axios'
 export default {
 	name: 'Teacher',
+	props: ['id'],
 	data() {
 		return {
-			teacher: {},
+			teacher: {
+				name: "name",
+				subject: "subject",
+				image: "http://localhost:8050/media/default.png"
+			},
 		}
 	},
 	components: {
 		TeacherComponent
 	},
 	mounted() {
-		let base_url = 'http://localhost:8050/api/v1'
-		let url = this.$route["fullPath"]
-		axios.get(base_url + url).then(response => {this.teacher = response.data})
+		let base_url = 'http://localhost:8050/'
+		let id = this.id
+		let url = base_url + 'teachers/' + id + '/'
+		axios.get(url).then(response => {this.teacher = response.data})
 	}
 }
 </script>
