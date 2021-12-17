@@ -11,11 +11,12 @@
 
 <script>
 import axios from 'axios'
-
+import {mapState} from 'vuex'
 export default {
 	name: 'Student',
 	components: {
 	},
+	computed: mapState(['APIdata']),
 	data() {
 		return {
 			url: 'http://localhost:8050/students/?limit=37&offset=0',
@@ -23,7 +24,13 @@ export default {
 		}
 	},
 	mounted() {
-		axios.get(this.url).then(response => {
+		let token = this.$store.state.accessToken
+		console.log(token)
+		axios.get(this.url, {
+			headers: {
+				Authorization: `Bearer ${this.$store.state.accessToken}`
+			}
+		}).then(response => {
 			this.students = response.data.results
 		})
 	}
