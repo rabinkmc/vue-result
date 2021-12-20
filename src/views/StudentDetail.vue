@@ -27,9 +27,8 @@ export default {
 		StudentComponent
 	},
 	mounted() {
-		let base_url = 'http://localhost:8050'
+		let base_url = 'http://localhost:8050/api/v1'
 		let url = this.$route["fullPath"]
-		console.log(base_url + url)
 		axios.get(base_url + url).then(response => {this.student = response.data})
 	}
 }

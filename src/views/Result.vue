@@ -38,9 +38,9 @@ export default {
 	},
 
 	mounted() {
-		let base_url = 'http://localhost:8050/'
+		let base_url = 'http://localhost:8050/api/v1/'
 		let id = this.id
-		let url = base_url + 'result/' + id
+		let url = base_url + 'result/' + id + '/'
 		axios.get(url).then(response => {this.result = response.data})
 	}
 }

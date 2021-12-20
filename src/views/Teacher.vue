@@ -1,7 +1,12 @@
 <template>
 	<div class="mt-5 grid gap-4 grid-cols-1">
 		<div v-for="teacher in teachers" :key="teacher.id">
-			<router-link :to="teacher.get_absolute_url">{{teacher.name}}</router-link>
+			<router-link
+				:to="{
+					name: 'TeacherDetail',
+					params: {id: teacher.id}
+				}"
+			>{{teacher.name}}</router-link>
 		</div>
 	</div>
 	<button class="btn btn-primary" @click="decrease">prev</button> |
@@ -9,22 +14,23 @@
 </template>
 
 <script>
-import axios from 'axios'
+import {mapGetters, mapActions} from "vuex";
 
 export default {
-	name: 'Teacher',
-	components: {
-	},
+	name: 'Teachers',
 	data() {
 		return {
-			url: 'http://localhost:8050/teachers/',
-			teachers: null,
+			count: 0
 		}
 	},
+	computed: mapGetters(["teachers"]),
+
+	methods: {
+		...mapActions(['fetchTeachers']),
+	},
+
 	mounted() {
-		axios.get(this.url).then(response => {
-			this.teachers = response.data.results
-		})
+		this.fetchTeachers()
 	}
 }
 </script>

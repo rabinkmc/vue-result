@@ -3,5 +3,10 @@ import App from "./App.vue";
 import "./assets/tailwind.css";
 import router from "./router";
 import store from "./store";
+import axios from "axios";
 
-createApp(App).use(store).use(router).mount("#app");
+const app = createApp(App);
+app.use(router);
+axios.defaults.baseURL = "http://localhost:8050/api/v1";
+app.config.globalProperties.$http = axios;
+app.use(store).mount("#app");

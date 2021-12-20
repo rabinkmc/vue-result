@@ -1,7 +1,13 @@
 <template>
 	<div class="mt-5 grid gap-4 grid-cols-1">
 		<div v-for="student in students" :key="student.rollno">
-			<router-link :to="student.get_absolute_url">{{student.name}}</router-link>
+			<router-link
+				:to="{
+					name: 'StudentDetail',
+					params: {id: student.id}
+				}
+				"
+			>{{student.name}}</router-link>
 		</div>
 	</div>
 
@@ -16,22 +22,20 @@ export default {
 	name: 'Student',
 	components: {
 	},
-	computed: mapState(['APIdata']),
+	computed: mapState(['students']),
 	data() {
 		return {
-			url: 'http://localhost:8050/students/?limit=37&offset=0',
-			students: {},
+			url: 'http://localhost:8050/api/v1/students/?limit=37&offset=0',
 		}
 	},
 	mounted() {
 		let token = this.$store.state.accessToken
-		console.log(token)
 		axios.get(this.url, {
 			headers: {
-				Authorization: `Bearer ${this.$store.state.accessToken}`
+				Authorization: `Bearer ${token}`
 			}
 		}).then(response => {
-			this.students = response.data.results
+			this.$store.state.students = response.data.results
 		})
 	}
 }

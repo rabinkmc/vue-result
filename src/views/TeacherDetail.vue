@@ -22,7 +22,7 @@ export default {
 		TeacherComponent
 	},
 	mounted() {
-		let base_url = 'http://localhost:8050/'
+		let base_url = 'http://localhost:8050/api/v1/'
 		let id = this.id
 		let url = base_url + 'teachers/' + id + '/'
 		axios.get(url).then(response => {this.teacher = response.data})

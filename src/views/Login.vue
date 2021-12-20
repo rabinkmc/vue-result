@@ -37,6 +37,7 @@
 </template>
 <script>
 
+
 export default {
 	name: 'Login',
 	data() {
@@ -50,8 +51,6 @@ export default {
 	},
 	methods: {
 		login() {
-			console.log(this.username)
-			console.log(this.password)
 			this.$store.dispatch('userLogin', {
 				username: this.username,
 				password: this.password
@@ -66,3 +65,4 @@ export default {
 	}
 }
 </script>
+

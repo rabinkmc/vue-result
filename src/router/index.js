@@ -7,6 +7,7 @@ import TeacherDetail from "../views/TeacherDetail.vue";
 import Teacher from "../views/Teacher.vue";
 import Result from "../views/Result.vue";
 import Login from "../views/Login.vue";
+import Subject from "../views/Subject.vue";
 
 const routes = [
   {
@@ -16,13 +17,19 @@ const routes = [
   },
 
   {
+    path: "/subject",
+    name: "Subject",
+    component: Subject,
+  },
+
+  {
     path: "/login",
     name: "Login",
     component: Login,
   },
 
   {
-    path: "/result/:id",
+    path: "/result/:id/",
     name: "Result",
     component: Result,
   },
@@ -43,9 +50,8 @@ const routes = [
     name: "Teacher",
     component: Teacher,
   },
-
   {
-    path: "/students/:id",
+    path: "/students/:id/",
     name: "StudentDetail",
     component: StudentDetail,
   },
