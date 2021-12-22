@@ -61,10 +61,13 @@
 									>Settings</a>
 								</MenuItem>
 								<MenuItem v-slot="{active}">
-									<a
-										href="#"
+									<router-link
 										:class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']"
-									>Sign out</a>
+										:to="{
+											name: 'Login'
+										}"
+										@click="logout"
+									>Sign Out</router-link>
 								</MenuItem>
 							</MenuItems>
 						</transition>
@@ -93,11 +96,10 @@ import {Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIte
 import {MenuIcon, XIcon} from '@heroicons/vue/outline'
 
 const navigation = [
-	{name: 'Home', to: '/', current: true},
+	{name: 'Home', to: '/home', current: true},
 	{name: 'About', to: '/about', current: false},
 	{name: 'Student', to: '/students', current: false},
 	{name: 'Teacher', to: '/teachers', current: false},
-	{name: 'Login', to: '/login', current: false},
 ]
 
 export default {
@@ -112,10 +114,17 @@ export default {
 		MenuIcon,
 		XIcon,
 	},
-	setup() {
+	data() {
 		return {
 			navigation,
 		}
 	},
+	computed: {
+	},
+	methods: {
+		logout() {
+			this.$store.dispatch('userLogout')
+		}
+	}
 }
 </script>
