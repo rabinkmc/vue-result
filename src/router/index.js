@@ -24,7 +24,7 @@ const routes = [
   },
 
   {
-    path: "/login",
+    path: "/",
     name: "Login",
     component: Login,
   },
@@ -46,6 +46,13 @@ const routes = [
     name: "Student",
     component: Student,
   },
+
+  {
+    path: "/studentstable",
+    name: "StudentTable",
+    component: StudentTable,
+  },
+
   {
     path: "/teacher",
     name: "Teacher",
