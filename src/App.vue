@@ -1,12 +1,18 @@
 <template>
-	<nav-bar></nav-bar>
+	<nav-bar v-if="login"></nav-bar>
 	<router-view />
 </template>
+
 <script>
 import NavBar from './components/NavBar.vue'
 export default {
 	components: {
 		NavBar
+	},
+	computed: {
+		login() {
+			return !(this.$route.path === '/')
+		}
 	}
 }
 </script>
