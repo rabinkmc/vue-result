@@ -8,10 +8,11 @@ import Teacher from "../views/Teacher.vue";
 import Result from "../views/Result.vue";
 import Login from "../views/Login.vue";
 import Subject from "../views/Subject.vue";
+import StudentTable from "../components/StudentTable.vue";
 
 const routes = [
   {
-    path: "/",
+    path: "/home",
     name: "Home",
     component: Home,
   },
