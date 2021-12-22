@@ -53,8 +53,11 @@
 											params: {id: student.id}
 										}
 										"
-									>View Detail</router-link>
+									>
+										<mdicon name="eye" />
+									</router-link>
 								</td>
+								<td></td>
 							</tr>
 						</tbody>
 					</table>
@@ -65,38 +68,13 @@
 </template>
 
 <script>
-const people = [
-	{
-		name: 'Jane Cooper',
-		title: 'Regional Paradigm Technician',
-		department: 'Optimization',
-		role: 'Admin',
-		email: 'jane.cooper@example.com',
-		image:
-			'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
-	},
-	{
-		name: 'Jane Cooper',
-		title: 'Regional Paradigm Technician',
-		department: 'Optimization',
-		role: 'Admin',
-		email: 'jane.cooper@example.com',
-		image:
-			'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
-	},
-]
-
 import {mapGetters, mapActions} from 'vuex'
-
 export default {
 	name: 'Students',
-	data() {
-		return {
-			people
-		}
-	},
 	computed: {
-		...mapGetters(['students']),
+		...mapGetters({
+			students: 'storeStudents'
+		}),
 	},
 	methods: {
 		...mapActions(['fetchStudents']),
@@ -105,5 +83,4 @@ export default {
 		this.fetchStudents()
 	}
 }
-
 </script>

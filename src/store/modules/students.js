@@ -1,32 +1,30 @@
 import axios from "axios";
 
 const state = {
-  subjects: [
-    {
-      id: 1,
-      name: "Maths",
-    },
-    {
-      id: 2,
-      name: "English",
-    },
-    {
-      id: 3,
-      name: "Science",
-    },
-  ],
+  offset: 0,
+  students: [],
 };
+
 const getters = {
-  subjects: (state) => state.subjects,
+  storeStudents: (state) => state.students,
+  storeOffset: (state) => state.offset,
+};
+
+const mutations = {
+  setStudents: (state, students) => (state.students = students),
+  setOffset: (state, offset) => (state.offset = offset),
 };
 
 const actions = {
-  async fetchStudents({ commit }) {
-    const reponse = await axios.get("http://localhost:8050/api/v1/students");
-    console.log(reponse.data);
+  async fetchStudents({ commit }, offset) {
+    const response = await axios.get(
+      `http://localhost:8050/api/v1/students/?limit=5&offset=${offset}`
+    );
+    console.log(response.data);
+    commit("setStudents", response.data.results);
+    commit("setOffset", offset);
   },
 };
-const mutations = {};
 
 export default {
   state,

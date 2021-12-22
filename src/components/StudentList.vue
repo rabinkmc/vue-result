@@ -26,44 +26,12 @@
 </template>
 
 <script>
-
-import {mapGetters, mapActions} from 'vuex'
-
 export default {
-	name: 'Students',
-	data() {
-		return {
-			offset: 0,
-		}
-	},
-	components: {
-	},
-	computed: {
-		...mapGetters({
-			students: 'storeStudents',
-			storeOffset: 'storeOffset'
-		}),
-	},
-	methods: {
-		...mapActions(['fetchStudents']),
-		nextPage() {
-			this.fetchStudents(this.storeOffset + 5)
+	props: {
+		students: {
+			type: Array,
+			requird: true
 		},
-		prevPage() {
-			if (this.storeOffset > 37)
-				this.fetchStudents(this.storeOffset - 5)
-		}
-	},
-	mounted() {
-		this.fetchStudents(this.offset)
-	},
-	watch: {
-		offset(val) {
-			if (val) {
-				this.fetchStudents(this.offset)
-			}
-		}
 	}
 }
 </script>
-
