@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const state = {
-  subjects: [],
+  teachers: [],
 };
 const getters = {
   teachers: (state) => state.teachers,

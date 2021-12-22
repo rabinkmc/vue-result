@@ -56,7 +56,7 @@ export default {
 				password: this.password
 			}).
 				then(() => {
-					this.$router.push({name: 'Student'})
+					this.$router.push({name: 'Home'})
 				}).catch(err => {
 					console.log(err)
 					this.incorrectAuth = true
