@@ -12,6 +12,7 @@ const getters = {
 
 const mutations = {
   setStudents: (state, students) => (state.students = students),
+  setOffset: (state, offset) => (state.offset = offset),
 };
 
 const actions = {

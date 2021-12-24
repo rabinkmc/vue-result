@@ -13,11 +13,6 @@
 			>{{student.name}}</router-link>
 		</div>
 	</div>
-<<<<<<< HEAD
-</template>
-
-<script>
-=======
 	<div class="my-5 flex">
 		<button
 			class="mx-5 flex-initial bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
@@ -31,57 +26,12 @@
 </template>
 
 <script>
-
->>>>>>> devel
-import {mapGetters, mapActions} from 'vuex'
-
 export default {
-	name: 'Students',
-<<<<<<< HEAD
-	computed: {
-		...mapGetters(['students']),
-	},
-	methods: {
-		...mapActions(['fetchStudents']),
-	},
-	mounted() {
-		this.fetchStudents()
-=======
-	data() {
-		return {
-			offset: 0,
-		}
-	},
-	components: {
-	},
-	computed: {
-		...mapGetters({
-			students: 'storeStudents',
-			storeOffset: 'storeOffset'
-		}),
-	},
-	methods: {
-		...mapActions(['fetchStudents']),
-		nextPage() {
-			this.fetchStudents(this.storeOffset + 5)
+	props: {
+		students: {
+			type: Array,
+			requird: true
 		},
-		prevPage() {
-			if (this.storeOffset > 37)
-				this.fetchStudents(this.storeOffset - 5)
-		}
-	},
-	mounted() {
-		this.fetchStudents(this.offset)
-	},
-	watch: {
-		offset(val) {
-			if (val) {
-				this.fetchStudents(this.offset)
-			}
-		}
->>>>>>> devel
 	}
 }
-
 </script>
-

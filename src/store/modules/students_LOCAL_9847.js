@@ -1,13 +1,10 @@
 import axios from "axios";
 
 const state = {
-  offset: 0,
   students: [],
 };
-
 const getters = {
-  storeStudents: (state) => state.students,
-  storeOffset: (state) => state.offset,
+  students: (state) => state.students,
 };
 
 const mutations = {
@@ -15,13 +12,10 @@ const mutations = {
 };
 
 const actions = {
-  async fetchStudents({ commit }, offset) {
-    const response = await axios.get(
-      `http://localhost:8050/api/v1/students/?limit=5&offset=${offset}`
-    );
+  async fetchStudents({ commit }) {
+    const response = await axios.get("http://localhost:8050/api/v1/students/");
     console.log(response.data);
     commit("setStudents", response.data.results);
-    commit("setOffset", offset);
   },
 };
 
